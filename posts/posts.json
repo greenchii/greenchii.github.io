@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "Hello World：我的博客上线啦",
+    "date": "2026-03-19",
+    "tags": ["随笔", "建站"],
+    "excerpt": "用 GitHub Pages 搭一个简单好看的静态博客：Markdown 写作、自动渲染、支持主题切换。",
+    "file": "./posts/hello-world.md"
+  },
+  {
+    "slug": "github-pages-notes",
+    "title": "GitHub Pages 发布笔记（新手向）",
+    "date": "2026-03-19",
+    "tags": ["GitHub", "Pages"],
+    "excerpt": "从创建仓库到启用 Pages，再到更新文章索引，一次走通发布流程。",
+    "file": "./posts/github-pages-notes.md"
+  }
+]

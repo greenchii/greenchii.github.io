@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>我的博客</title>
+    <link>https://&lt;你的用户名&gt;.github.io/</link>
+    <description>我的个人博客 RSS</description>
+    <language>zh-cn</language>
+    <item>
+      <title>Hello World：我的博客上线啦</title>
+      <link>https://&lt;你的用户名&gt;.github.io/post.html?slug=hello-world</link>
+      <guid>https://&lt;你的用户名&gt;.github.io/post.html?slug=hello-world</guid>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <description>用 GitHub Pages 搭一个简单好看的静态博客。</description>
+    </item>
+  </channel>
+</rss>

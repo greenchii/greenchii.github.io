@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://&lt;你的用户名&gt;.github.io/</loc>
+  </url>
+  <url>
+    <loc>https://&lt;你的用户名&gt;.github.io/post.html?slug=hello-world</loc>
+  </url>
+  <url>
+    <loc>https://&lt;你的用户名&gt;.github.io/post.html?slug=github-pages-notes</loc>
+  </url>
+</urlset>
