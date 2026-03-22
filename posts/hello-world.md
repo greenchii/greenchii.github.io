@@ -40,3 +40,5 @@ function hello(name) {
 
 console.log(hello("世界"));
 ```
+
+总而言之言而总之，就是只要你会markdown你就可以写博客了！不过这个博客只是我的碎碎念...
