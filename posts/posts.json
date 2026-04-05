@@ -22,5 +22,13 @@
     "tags": ["markdown", "日记"],
     "excerpt": "markdown 格式笔记与今日日记",
     "file": "./posts/0402.md"
+  },
+   {
+    "slug": "0405",
+    "title": "2026/4/5",
+    "date": "2026-04-05",
+    "tags": ["markdown", "日记"],
+    "excerpt": "docker与今日日记",
+    "file": "./posts/0405.md"
   }
 ]
