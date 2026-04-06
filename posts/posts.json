@@ -30,5 +30,13 @@
     "tags": ["markdown", "日记"],
     "excerpt": "docker与今日日记",
     "file": "./posts/0405.md"
+  },
+  {
+    "slug": "0406",
+    "title": "2026/4/6",
+    "date": "2026-04-06",
+    "tags": ["这是一个标签", "学习笔记"],
+    "excerpt": "清明再见，五一你好",
+    "file": "./posts/0406.md"
   }
 ]
