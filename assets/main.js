@@ -48,10 +48,14 @@ class PostStorage {
 
 // ============ Utility Functions ============
 function setTheme(theme) {
+  document.documentElement.classList.toggle("dark", theme === "dark");
   document.documentElement.dataset.theme = theme;
   try {
     localStorage.setItem(THEME_KEY, theme);
   } catch {}
+  // Update theme toggle icon
+  const btn = document.getElementById("themeToggle");
+  if (btn) btn.textContent = theme === "light" ? "light_mode" : "dark_mode";
 }
 
 function getPreferredTheme() {
@@ -97,7 +101,9 @@ async function fetchText(path) {
 
 function renderTags(tags) {
   if (!Array.isArray(tags) || tags.length === 0) return "";
-  return tags.map((t) => `<span class="tag">#${escapeHtml(t)}</span>`).join("");
+  return tags
+    .map((t) => `<span class="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">#${escapeHtml(t)}</span>`)
+    .join("");
 }
 
 function normalizeForSearch(s) {
@@ -111,6 +117,10 @@ function isIndexPage() {
 
 function isPostPage() {
   return window.location.pathname.endsWith("/post.html") || window.location.pathname.endsWith("post.html");
+}
+
+function isAboutPage() {
+  return window.location.pathname.endsWith("/about.html") || window.location.pathname.endsWith("about.html");
 }
 
 function generateSlug(title) {
@@ -131,6 +141,16 @@ function generateUniqueSlug(baseSlug, existingPosts) {
   }
   return slug;
 }
+
+// Card gradient presets for variety
+const CARD_GRADIENTS = [
+  "from-[#2b1b4d] via-[#1d1b1f] to-[#352100]",
+  "from-[#354487] via-[#1d1b1f] to-[#2b1b4d]",
+  "from-[#352100] via-[#1d1b1f] to-[#354487]",
+  "from-[#2b292d] via-[#1d1b1f] to-[#2b1b4d]",
+  "from-[#1d1b1f] via-[#354487] to-[#352100]",
+  "from-[#2b1b4d] via-[#352100] to-[#1d1b1f]",
+];
 
 // ============ Modal Management ============
 class PostModal {
@@ -265,35 +285,41 @@ async function initIndex() {
 
     metaEl.textContent = `共 ${filtered.length} 篇文章`;
     if (filtered.length === 0) {
-      listEl.innerHTML = `<div class="muted">没有找到匹配的文章。</div>`;
+      listEl.innerHTML = `<div class="col-span-full text-on-surface-variant/50 italic text-center py-12">没有找到匹配的文章。</div>`;
       return;
     }
 
     listEl.innerHTML = filtered
-      .map((p) => {
+      .map((p, i) => {
         const slug = encodeURIComponent(p.slug || "");
         const href = `./post.html?slug=${slug}`;
         const date = formatDate(p.date);
         const tagsHtml = renderTags(p.tags);
         const isLocal = localPosts.some((lp) => lp.slug === p.slug);
-        const badge = isLocal ? '<span class="badge" style="background: rgba(124, 58, 237, 0.2); border-color: rgba(124, 58, 237, 0.4);">本地</span>' : "";
+        const gradient = CARD_GRADIENTS[i % CARD_GRADIENTS.length];
+        const staggerOffset = (i % 3 === 1) ? "lg:mt-8" : "";
 
         return `
-          <div class="post-card-container">
-            <a class="post-card" href="${href}">
-              <div class="meta-row">
-                <span class="badge">${escapeHtml(date)}</span>
-                <span class="tags">${tagsHtml}</span>
-                ${badge}
+          <article class="poster-card group cursor-pointer relative ${staggerOffset}">
+            <a href="${href}" class="block no-underline">
+              <div class="poster-glow aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-br ${gradient} relative border border-outline-variant/10">
+                <div class="absolute inset-0 flex flex-col justify-end p-5 bg-gradient-to-t from-[#141316]/95 via-[#141316]/40 to-transparent">
+                  <div class="flex items-center gap-2 mb-2 flex-wrap">
+                    <span class="text-xs font-semibold text-tertiary tracking-widest uppercase">${escapeHtml(date)}</span>
+                    ${isLocal ? '<span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold bg-primary/20 text-primary border border-primary/30">本地</span>' : ""}
+                  </div>
+                  <h3 class="font-headline text-lg md:text-xl font-semibold text-on-surface leading-tight group-hover:text-primary transition-colors duration-300 mb-2">${escapeHtml(p.title || "未命名")}</h3>
+                  <div class="h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-500 mb-2"></div>
+                  <p class="text-on-surface-variant text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mb-2">${escapeHtml(p.excerpt || "")}</p>
+                  <div class="flex gap-1.5 flex-wrap">${tagsHtml}</div>
+                </div>
               </div>
-              <h3 class="post-title">${escapeHtml(p.title || "未命名")}</h3>
-              <p class="post-excerpt">${escapeHtml(p.excerpt || "")}</p>
             </a>
-            ${isLocal ? `<div class="post-card-actions">
-              <button class="btn" data-action="edit" data-slug="${escapeHtml(p.slug)}">编辑</button>
-              <button class="btn" data-action="delete" data-slug="${escapeHtml(p.slug)}">删除</button>
+            ${isLocal ? `<div class="flex gap-2 mt-2 px-1">
+              <button class="bg-surface-container-high text-on-surface-variant hover:text-primary px-3 py-1 rounded-full text-xs font-semibold border border-outline-variant/30 hover:border-primary/30 transition-all cursor-pointer" data-action="edit" data-slug="${escapeHtml(p.slug)}">编辑</button>
+              <button class="bg-surface-container-high text-on-surface-variant hover:text-error px-3 py-1 rounded-full text-xs font-semibold border border-outline-variant/30 hover:border-error/30 transition-all cursor-pointer" data-action="delete" data-slug="${escapeHtml(p.slug)}">删除</button>
             </div>` : ""}
-          </div>
+          </article>
         `;
       })
       .join("");
@@ -302,6 +328,7 @@ async function initIndex() {
     document.querySelectorAll('button[data-action="edit"]').forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const slug = btn.dataset.slug;
         const post = allPosts.find((p) => p.slug === slug);
         if (post) {
@@ -313,6 +340,7 @@ async function initIndex() {
     document.querySelectorAll('button[data-action="delete"]').forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const slug = btn.dataset.slug;
         if (confirm("确定要删除这篇文章吗？")) {
           PostStorage.deletePost(slug);
@@ -323,12 +351,34 @@ async function initIndex() {
         }
       });
     });
+
+    // Poster card perspective tilt effect
+    document.querySelectorAll(".poster-card").forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        const glow = card.querySelector(".poster-glow");
+        if (glow) {
+          glow.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+      });
+      card.addEventListener("mouseleave", () => {
+        const glow = card.querySelector(".poster-glow");
+        if (glow) {
+          glow.style.transform = "perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)";
+        }
+      });
+    });
   };
 
   // Setup modal save callback
   modal.setOnSaveCallback((post, editingSlug) => {
     if (editingSlug) {
-      // Update
       const existing = allPosts.find((p) => p.slug === editingSlug);
       if (existing) {
         PostStorage.updatePost(editingSlug, post);
@@ -336,7 +386,6 @@ async function initIndex() {
         allPosts.sort((a, b) => String(b?.date ?? "").localeCompare(String(a?.date ?? "")));
       }
     } else {
-      // Create
       const baseSlug = generateSlug(post.title);
       const slug = generateUniqueSlug(baseSlug, allPosts);
       const fullPost = { ...post, slug };
@@ -347,7 +396,6 @@ async function initIndex() {
     render(searchEl.value);
   });
 
-  // Setup new post button
   if (newPostBtn) {
     newPostBtn.addEventListener("click", () => {
       modal.open();
@@ -373,7 +421,7 @@ async function initPost() {
   const slug = getQueryParam("slug");
   if (!slug) {
     titleEl.textContent = "缺少 slug 参数";
-    bodyEl.innerHTML = `<p class="muted">请从首页点击文章进入。</p>`;
+    bodyEl.innerHTML = `<p class="text-on-surface-variant/50 italic">请从首页点击文章进入。</p>`;
     return;
   }
 
@@ -402,17 +450,15 @@ async function initPost() {
 
   if (!post) {
     titleEl.textContent = "文章不存在";
-    bodyEl.innerHTML = `<p class="muted">找不到 slug 为 <code>${escapeHtml(slug)}</code> 的文章。</p>`;
-    if (editBtn) editBtn.style.display = "none";
-    if (deleteBtn) deleteBtn.style.display = "none";
+    bodyEl.innerHTML = `<p class="text-on-surface-variant/50 italic">找不到 slug 为 <code class="font-mono text-sm bg-surface-container-high px-2 py-0.5 rounded">${escapeHtml(slug)}</code> 的文章。</p>`;
     return;
   }
 
   const renderPost = () => {
     titleEl.textContent = post.title || "未命名";
-    dateEl.textContent = formatDate(post.date) || "—";
+    dateEl.innerHTML = `<span class="material-symbols-outlined text-sm">calendar_today</span> ${formatDate(post.date) || "—"}`;
     tagsEl.innerHTML = renderTags(post.tags);
-    document.title = `${post.title || "文章"} - 我的博客`;
+    document.title = `${post.title || "文章"} - 拂烟`;
 
     let content = post.content || "";
 
@@ -436,10 +482,9 @@ async function initPost() {
         })
         .catch(() => {
           const mdPath = post.file || `./posts/${slug}.md`;
-          bodyEl.innerHTML = `<p class="muted">加载文章内容失败：<code>${escapeHtml(mdPath)}</code></p>`;
+          bodyEl.innerHTML = `<p class="text-on-surface-variant/50 italic">加载文章内容失败：<code class="font-mono text-sm">${escapeHtml(mdPath)}</code></p>`;
         });
     } else {
-      // Plain text content
       bodyEl.textContent = content;
     }
   };
@@ -457,11 +502,8 @@ async function initPost() {
   // Show/hide edit and delete buttons
   if (editBtn && deleteBtn) {
     if (isLocal) {
-      editBtn.style.display = "inline-block";
-      deleteBtn.style.display = "inline-block";
-    } else {
-      editBtn.style.display = "none";
-      deleteBtn.style.display = "none";
+      editBtn.classList.remove("hidden");
+      deleteBtn.classList.remove("hidden");
     }
   }
 
@@ -494,31 +536,30 @@ async function initPost() {
   renderPost();
 }
 
+// ============ Theme Toggle ============
 function initThemeToggle() {
   const btn = document.getElementById("themeToggle");
   if (!btn) return;
 
-  const apply = (t) => {
-    setTheme(t);
-    btn.textContent = t === "light" ? "浅色" : "深色";
-  };
+  const theme = getPreferredTheme();
+  setTheme(theme);
 
-  apply(getPreferredTheme());
   btn.addEventListener("click", () => {
-    const cur = document.documentElement.dataset.theme;
-    apply(cur === "light" ? "dark" : "light");
+    const cur = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    setTheme(cur === "light" ? "dark" : "light");
   });
 }
 
+// ============ Year ============
 function initYear() {
   const el = document.getElementById("year");
   if (el) el.textContent = String(new Date().getFullYear());
 }
 
+// ============ Init ============
 document.addEventListener("DOMContentLoaded", () => {
   initYear();
   initThemeToggle();
   if (isIndexPage()) initIndex();
   if (isPostPage()) initPost();
 });
-

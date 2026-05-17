@@ -1,20 +1,64 @@
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <title>404 - 页面不存在</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
-  <body>
-    <main class="container" style="padding: 40px 0">
-      <section class="panel">
-        <h1 style="margin: 0 0 10px">404</h1>
-        <p class="muted" style="margin: 0 0 16px">页面不存在，可能链接写错了。</p>
-        <a class="btn btn-ghost" href="./">返回首页</a>
-      </section>
-    </main>
-    <script src="./assets/main.js" defer></script>
-  </body>
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - 拂烟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#141316",
+            "surface-dim": "#141316",
+            "surface-bright": "#3b383c",
+            "surface-container-lowest": "#0f0e11",
+            "surface-container-low": "#1d1b1f",
+            "surface-container": "#211f23",
+            "surface-container-high": "#2b292d",
+            "surface-container-highest": "#363438",
+            "on-surface": "#e6e1e6",
+            "on-surface-variant": "#cbc4d0",
+            "outline": "#948f99",
+            "outline-variant": "#49454e",
+            "primary": "#d1bdfa",
+            "on-primary": "#372759",
+            "primary-container": "#2b1b4d",
+            "on-primary-container": "#9583bc",
+            "secondary": "#b9c3ff",
+            "tertiary": "#e5c18f",
+            "background": "#141316",
+            "on-background": "#e6e1e6",
+          },
+          fontFamily: {
+            "display": ["Playfair Display"],
+            "headline": ["Playfair Display"],
+            "body": ["Hanken Grotesk"],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body class="bg-background text-on-background font-body overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+  <div class="film-grain"></div>
+  <main class="min-h-screen flex items-center justify-center px-6">
+    <div class="text-center">
+      <div class="shooting-star w-48 mx-auto opacity-60 mb-8"></div>
+      <h1 class="font-display text-7xl md:text-9xl font-bold text-primary/30 mb-4">404</h1>
+      <p class="text-on-surface-variant text-lg mb-8 italic">这片星空下找不到你要的页面...</p>
+      <a href="./index.html" class="bg-tertiary text-on-tertiary px-8 py-3 rounded-full text-sm font-semibold tracking-wider hover:shadow-[0_0_20px_rgba(229,193,143,0.3)] transition-all inline-block no-underline uppercase">
+        返回首页
+      </a>
+    </div>
+  </main>
+  <script src="./assets/main.js" defer></script>
+</body>
 </html>

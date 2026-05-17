@@ -1,132 +1,157 @@
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <title>拂烟</title>
-    <meta name="description" content="一个基于 GitHub Pages 的静态个人博客。" />
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">跳到内容</a>
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拂烟</title>
+  <meta name="description" content="拂烟的个人博客 — 记录生活与技术的点滴。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#141316",
+            "surface-dim": "#141316",
+            "surface-bright": "#3b383c",
+            "surface-container-lowest": "#0f0e11",
+            "surface-container-low": "#1d1b1f",
+            "surface-container": "#211f23",
+            "surface-container-high": "#2b292d",
+            "surface-container-highest": "#363438",
+            "on-surface": "#e6e1e6",
+            "on-surface-variant": "#cbc4d0",
+            "outline": "#948f99",
+            "outline-variant": "#49454e",
+            "primary": "#d1bdfa",
+            "on-primary": "#372759",
+            "primary-container": "#2b1b4d",
+            "on-primary-container": "#9583bc",
+            "secondary": "#b9c3ff",
+            "on-secondary": "#1a2a6c",
+            "secondary-container": "#354487",
+            "on-secondary-container": "#a6b4ff",
+            "tertiary": "#e5c18f",
+            "on-tertiary": "#422c07",
+            "tertiary-container": "#352100",
+            "on-tertiary-container": "#a6875a",
+            "background": "#141316",
+            "on-background": "#e6e1e6",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+          },
+          fontFamily: {
+            "display": ["Playfair Display"],
+            "headline": ["Playfair Display"],
+            "body": ["Hanken Grotesk"],
+            "label": ["Hanken Grotesk"],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body class="bg-background text-on-background font-body overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+  <div class="film-grain"></div>
 
-    <header class="site-header">
-      <div class="container header-row">
-        <div class="brand">
-          <a class="brand-title" href="./index.html">拂烟</a>
-          <p class="brand-subtitle">个人博客</p>
-        </div>
-        <div class="header-actions">
-          <button id="themeToggle" class="btn" type="button" aria-label="切换主题">
-            主题
-          </button>
-          <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noreferrer">
-            GitHub主页
-          </a>
-        </div>
+  <!-- Navigation -->
+  <nav class="bg-surface/80 backdrop-blur-xl sticky top-0 z-50 border-b border-outline-variant/30 shadow-[0_0_20px_rgba(209,189,250,0.15)]">
+    <div class="flex justify-between items-center px-6 py-4 max-w-[1200px] mx-auto">
+      <a href="./index.html" class="font-display text-2xl font-semibold text-primary tracking-tighter drop-shadow-[0_0_10px_rgba(209,189,250,0.5)] hover:opacity-80 transition-opacity no-underline">拂烟</a>
+      <div class="hidden md:flex items-center gap-12">
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-sm font-semibold tracking-widest uppercase no-underline" href="./index.html">首页</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-sm font-semibold tracking-widest uppercase no-underline" href="./about.html">关于</a>
       </div>
-    </header>
+      <div class="flex items-center gap-4">
+        <button id="themeToggle" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all hover:scale-110 active:scale-95 cursor-pointer bg-transparent border-none text-xl" type="button" aria-label="切换主题">dark_mode</button>
+        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold tracking-widest uppercase no-underline hidden sm:inline" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </nav>
 
-    <main id="main" class="container">
-      <section class="hero">
-        <h1>你好，我是 <span class="accent">拂烟</span></h1>
-        <p class="muted">
-          这是一个静态个人博客，目前正在马不停蹄的建设中ing...
-        </p>
-      </section>
+  <main class="max-w-[1200px] mx-auto px-6 py-12">
+    <!-- Hero Section -->
+    <section class="mb-16 text-center space-y-4">
+      <div class="shimmer-line h-px w-48 mx-auto mb-2"></div>
+      <h1 class="font-display text-4xl md:text-6xl font-bold italic text-on-surface">你好，我是 <span class="text-primary drop-shadow-[0_0_15px_rgba(209,189,250,0.4)]">拂烟</span></h1>
+      <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">记录生活与技术的点滴，在星光下书写属于自己的故事。</p>
+    </section>
 
-      <section class="panel">
-        <div class="panel-row">
-          <h2 class="panel-title">文章</h2>
-          <div class="panel-actions">
-            <button id="newPostBtn" class="btn" type="button" aria-label="新建文章">+ 新建文章</button>
-            <input
-              id="searchInput"
-              class="input"
-              type="search"
-              placeholder="搜索标题/标签…"
-              autocomplete="off"
-              aria-label="搜索文章"
-            />
-          </div>
+    <!-- Articles Section -->
+    <section class="mb-16">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div class="flex items-center gap-4">
+          <h2 class="font-headline text-3xl font-semibold text-on-surface">文章</h2>
+          <div class="h-px flex-grow bg-gradient-to-r from-outline-variant/50 to-transparent min-w-[60px]"></div>
         </div>
-        <div id="postsMeta" class="muted small"></div>
-        <div id="postsList" class="posts-list" aria-live="polite"></div>
-      </section>
-
-      <!-- 新建/编辑文章模态框 -->
-      <div id="postModal" class="modal" style="display: none;">
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-dialog">
-          <div class="modal-header">
-            <h2 id="modalTitle">新建文章</h2>
-            <button id="modalClose" class="btn-close" type="button" aria-label="关闭">×</button>
+        <div class="flex items-center gap-3 flex-wrap">
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg pointer-events-none">search</span>
+            <input id="searchInput" class="bg-surface-container border-b border-outline-variant focus:border-tertiary focus:ring-0 text-sm pl-10 pr-4 py-2 rounded-t-lg transition-all text-on-surface placeholder:text-on-surface-variant/50 w-48 sm:w-64" type="search" placeholder="搜索故事..." autocomplete="off" aria-label="搜索文章" />
           </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="postTitleInput">标题</label>
-              <input
-                id="postTitleInput"
-                class="input"
-                type="text"
-                placeholder="输入文章标题…"
-              />
-            </div>
-            <div class="form-group">
-              <label for="postExcerptInput">摘要（可选）</label>
-              <input
-                id="postExcerptInput"
-                class="input"
-                type="text"
-                placeholder="输入文章摘要…"
-              />
-            </div>
-            <div class="form-group">
-              <label for="postContentInput">内容</label>
-              <textarea
-                id="postContentInput"
-                class="input textarea"
-                placeholder="输入文章内容…"
-                rows="12"
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <label for="postTagsInput">标签（用逗号分隔）</label>
-              <input
-                id="postTagsInput"
-                class="input"
-                type="text"
-                placeholder="例如：随笔, 技术"
-              />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button id="modalCancel" class="btn btn-ghost" type="button">取消</button>
-            <button id="modalSave" class="btn" type="button">保存</button>
-          </div>
+          <button id="newPostBtn" class="bg-tertiary text-on-tertiary px-5 py-2 rounded-full text-sm font-semibold tracking-wider hover:shadow-[0_0_20px_rgba(229,193,143,0.3)] transition-all active:scale-95 border-none cursor-pointer uppercase" type="button">+ 新文章</button>
         </div>
       </div>
 
-      <section class="panel">
-        <h2 class="panel-title">关于我</h2>
-        <p class="muted">
-          这里应该有一段自我介绍，但是我还没写，嗯对。
-        </p>
-      </section>
-    </main>
+      <div id="postsMeta" class="text-on-surface-variant/60 text-sm mb-4"></div>
+      <div id="postsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" aria-live="polite"></div>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-      <div class="container footer-row">
-        <p class="muted small">© <span id="year"></span> 拂烟 · Powered by GitHub Pages</p>
-        <p class="muted small">
-          <a href="./rss.xml">RSS</a>
-          <span class="sep">·</span>
-          <a href="./sitemap.xml">Sitemap</a>
-        </p>
+  <!-- New/Edit Post Modal -->
+  <div id="postModal" class="fixed inset-0 z-[100] flex items-center justify-center" style="display: none;">
+    <div class="modal-overlay absolute inset-0 bg-black/60 cursor-pointer" id="modalOverlay"></div>
+    <div class="modal-dialog relative w-[min(100%-32px,600px)] max-h-[85vh] bg-surface-container rounded-2xl border border-outline-variant/30 shadow-2xl overflow-hidden flex flex-col animate-[slideUp_200ms_ease]">
+      <div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant/20">
+        <h2 id="modalTitle" class="font-headline text-xl font-semibold text-on-surface m-0">新建文章</h2>
+        <button id="modalClose" class="bg-transparent border-none text-on-surface-variant hover:text-on-surface text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors" type="button" aria-label="关闭">&times;</button>
       </div>
-    </footer>
+      <div class="px-6 py-5 overflow-y-auto flex-1">
+        <div class="mb-5">
+          <label for="postTitleInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">标题</label>
+          <input id="postTitleInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40" type="text" placeholder="输入文章标题..." />
+        </div>
+        <div class="mb-5">
+          <label for="postExcerptInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">摘要（可选）</label>
+          <input id="postExcerptInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40" type="text" placeholder="输入文章摘要..." />
+        </div>
+        <div class="mb-5">
+          <label for="postContentInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">内容</label>
+          <textarea id="postContentInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40 min-h-[200px] resize-y font-mono" placeholder="输入文章内容..." rows="10"></textarea>
+        </div>
+        <div class="mb-2">
+          <label for="postTagsInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">标签（用逗号分隔）</label>
+          <input id="postTagsInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40" type="text" placeholder="例如：随笔, 技术" />
+        </div>
+      </div>
+      <div class="flex gap-3 justify-end px-6 py-5 border-t border-outline-variant/20">
+        <button id="modalCancel" class="px-5 py-2 rounded-full text-sm font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all border-none cursor-pointer bg-transparent" type="button">取消</button>
+        <button id="modalSave" class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full text-sm font-semibold hover:shadow-[0_0_20px_rgba(229,193,143,0.3)] transition-all active:scale-95 border-none cursor-pointer" type="button">保存</button>
+      </div>
+    </div>
+  </div>
 
-    <script src="./assets/main.js" defer></script>
-  </body>
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest w-full py-12 border-t border-outline-variant/10">
+    <div class="flex flex-col items-center gap-4 w-full px-6 max-w-[1200px] mx-auto">
+      <div class="font-headline text-2xl text-tertiary opacity-40">拂烟</div>
+      <div class="flex gap-8 flex-wrap justify-center">
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./rss.xml">RSS</a>
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./sitemap.xml">Sitemap</a>
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <p class="text-sm text-center italic text-on-surface-variant/50">
+        &copy; <span id="year"></span> 拂烟 &middot; Powered by GitHub Pages
+      </p>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js" defer></script>
+</body>
 </html>

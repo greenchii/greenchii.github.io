@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于 - 拂烟</title>
+  <meta name="description" content="关于拂烟 — 一个在星光下书写故事的人。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#141316",
+            "surface-dim": "#141316",
+            "surface-bright": "#3b383c",
+            "surface-container-lowest": "#0f0e11",
+            "surface-container-low": "#1d1b1f",
+            "surface-container": "#211f23",
+            "surface-container-high": "#2b292d",
+            "surface-container-highest": "#363438",
+            "on-surface": "#e6e1e6",
+            "on-surface-variant": "#cbc4d0",
+            "outline": "#948f99",
+            "outline-variant": "#49454e",
+            "primary": "#d1bdfa",
+            "on-primary": "#372759",
+            "primary-container": "#2b1b4d",
+            "on-primary-container": "#9583bc",
+            "secondary": "#b9c3ff",
+            "on-secondary": "#1a2a6c",
+            "secondary-container": "#354487",
+            "on-secondary-container": "#a6b4ff",
+            "tertiary": "#e5c18f",
+            "on-tertiary": "#422c07",
+            "tertiary-container": "#352100",
+            "on-tertiary-container": "#a6875a",
+            "background": "#141316",
+            "on-background": "#e6e1e6",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+          },
+          fontFamily: {
+            "display": ["Playfair Display"],
+            "headline": ["Playfair Display"],
+            "body": ["Hanken Grotesk"],
+            "label": ["Hanken Grotesk"],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body class="bg-background text-on-background font-body overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+  <div class="film-grain"></div>
+
+  <!-- Navigation -->
+  <nav class="bg-surface/80 backdrop-blur-xl sticky top-0 z-50 border-b border-outline-variant/30 shadow-[0_0_20px_rgba(209,189,250,0.15)]">
+    <div class="flex justify-between items-center px-6 py-4 max-w-[1200px] mx-auto">
+      <a href="./index.html" class="font-display text-2xl font-semibold text-primary tracking-tighter drop-shadow-[0_0_10px_rgba(209,189,250,0.5)] hover:opacity-80 transition-opacity no-underline">拂烟</a>
+      <div class="hidden md:flex items-center gap-12">
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-sm font-semibold tracking-widest uppercase no-underline" href="./index.html">首页</a>
+        <a class="text-tertiary font-bold border-b-2 border-tertiary text-sm tracking-widest uppercase no-underline" href="./about.html">关于</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <button id="themeToggle" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all hover:scale-110 active:scale-95 cursor-pointer bg-transparent border-none text-xl" type="button" aria-label="切换主题">dark_mode</button>
+        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold tracking-widest uppercase no-underline hidden sm:inline" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-[1200px] mx-auto px-6 py-16">
+    <!-- Cinematic Hero -->
+    <header class="text-center mb-16">
+      <div class="inline-block px-4 py-1 mb-3 rounded-full bg-primary-container text-primary text-xs font-semibold tracking-widest uppercase">
+        Scene I: The Origin
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl font-bold text-primary drop-shadow-[0_0_15px_rgba(209,189,250,0.3)] mb-3">关于拂烟</h1>
+      <div class="shooting-star w-48 mx-auto opacity-60"></div>
+    </header>
+
+    <!-- Script / Scrapbook Layout -->
+    <section class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+      <!-- Profile Photo (Scrapbook Style) -->
+      <div class="md:col-span-5 relative group">
+        <div class="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-tertiary/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+        <div class="relative bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-500 p-3">
+          <div class="w-full aspect-[4/5] rounded-lg bg-gradient-to-br from-primary-container via-surface-container-high to-tertiary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-7xl text-primary/30">person</span>
+          </div>
+          <div class="mt-4 font-body italic text-on-surface-variant text-center opacity-70 text-sm">
+            "Here's to the ones who dream..."
+          </div>
+        </div>
+        <!-- Decorative Tape -->
+        <div class="absolute top-0 right-1/4 w-24 h-8 bg-tertiary/20 backdrop-blur-md -rotate-12 transform -translate-y-1/2 border border-white/10 flex items-center justify-center text-xs text-tertiary uppercase tracking-tighter font-semibold">
+          Take One
+        </div>
+      </div>
+
+      <!-- Bio Content (Script Style) -->
+      <div class="md:col-span-7 flex flex-col gap-8" style="border-left: 2px solid rgba(209, 189, 250, 0.2); padding-left: 2rem;">
+        <div class="space-y-5">
+          <p class="text-xs font-semibold text-tertiary uppercase tracking-widest">The Protagonist</p>
+          <p class="text-lg leading-relaxed text-on-surface/90">
+            你好，我是拂烟。一个喜欢记录生活与技术点滴的人。在这里，我用文字和代码编织属于自己的故事。
+          </p>
+          <p class="text-lg leading-relaxed text-on-surface/90">
+            博客是我的<span class="text-primary italic">数字花园</span>，种着各种关于编程、生活和思考的文字。每一篇文章都是一颗种子，等待与你相遇。
+          </p>
+        </div>
+
+        <!-- Glass Panel -->
+        <div class="bg-surface-container/60 backdrop-blur-xl border border-primary/10 p-5 rounded-xl">
+          <h3 class="font-headline text-2xl font-semibold text-primary mb-4">兴趣方向</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-tertiary">star</span>
+              前端开发与用户体验设计
+            </li>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-tertiary">auto_awesome</span>
+              开源项目与技术写作
+            </li>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-tertiary">movie_filter</span>
+              用代码创造美好的事物
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="mt-20 py-16 text-center">
+      <div class="max-w-2xl mx-auto italic font-headline text-2xl md:text-3xl text-primary/80 relative">
+        <span class="absolute -top-12 -left-8 text-9xl opacity-10 font-serif">&ldquo;</span>
+        保持热爱，奔赴山海。
+        <span class="absolute -bottom-12 -right-8 text-9xl opacity-10 font-serif">&rdquo;</span>
+      </div>
+      <div class="mt-8 flex justify-center gap-4 flex-wrap">
+        <a href="./index.html" class="bg-tertiary text-on-tertiary px-8 py-3 rounded-full text-sm font-semibold tracking-wider hover:shadow-[0_0_20px_rgba(229,193,143,0.4)] transition-all inline-block no-underline uppercase">
+          阅读文章
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noreferrer" class="border border-primary text-primary px-8 py-3 rounded-full text-sm font-semibold tracking-wider hover:bg-primary/10 transition-all inline-block no-underline uppercase">
+          GitHub
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest w-full py-12 border-t border-outline-variant/10">
+    <div class="flex flex-col items-center gap-4 w-full px-6 max-w-[1200px] mx-auto">
+      <div class="font-headline text-2xl text-tertiary opacity-40">拂烟</div>
+      <div class="flex gap-8 flex-wrap justify-center">
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./index.html">首页</a>
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./rss.xml">RSS</a>
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./sitemap.xml">Sitemap</a>
+      </div>
+      <p class="text-sm text-center italic text-on-surface-variant/50">
+        &copy; <span id="year"></span> 拂烟 &middot; Powered by GitHub Pages
+      </p>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js" defer></script>
+</body>
+</html>

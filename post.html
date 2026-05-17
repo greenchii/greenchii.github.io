@@ -1,116 +1,162 @@
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <title>文章 - 我的博客</title>
-    <meta name="description" content="博客文章详情页" />
-    <link rel="stylesheet" href="./assets/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/styles/github-dark.min.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">跳到内容</a>
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文章 - 拂烟</title>
+  <meta name="description" content="拂烟的个人博客文章" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#141316",
+            "surface-dim": "#141316",
+            "surface-bright": "#3b383c",
+            "surface-container-lowest": "#0f0e11",
+            "surface-container-low": "#1d1b1f",
+            "surface-container": "#211f23",
+            "surface-container-high": "#2b292d",
+            "surface-container-highest": "#363438",
+            "on-surface": "#e6e1e6",
+            "on-surface-variant": "#cbc4d0",
+            "outline": "#948f99",
+            "outline-variant": "#49454e",
+            "primary": "#d1bdfa",
+            "on-primary": "#372759",
+            "primary-container": "#2b1b4d",
+            "on-primary-container": "#9583bc",
+            "secondary": "#b9c3ff",
+            "on-secondary": "#1a2a6c",
+            "secondary-container": "#354487",
+            "on-secondary-container": "#a6b4ff",
+            "tertiary": "#e5c18f",
+            "on-tertiary": "#422c07",
+            "tertiary-container": "#352100",
+            "on-tertiary-container": "#a6875a",
+            "background": "#141316",
+            "on-background": "#e6e1e6",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+          },
+          fontFamily: {
+            "display": ["Playfair Display"],
+            "headline": ["Playfair Display"],
+            "body": ["Hanken Grotesk"],
+            "label": ["Hanken Grotesk"],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body class="bg-background text-on-background font-body overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+  <div class="film-grain"></div>
 
-    <header class="site-header">
-      <div class="container header-row">
-        <div class="brand">
-          <a class="brand-title" href="./index.html">我的博客</a>
-          <p class="brand-subtitle">文章</p>
+  <!-- Navigation -->
+  <nav class="bg-surface/80 backdrop-blur-xl sticky top-0 z-50 border-b border-outline-variant/30 shadow-[0_0_20px_rgba(209,189,250,0.15)]">
+    <div class="flex justify-between items-center px-6 py-4 max-w-[1200px] mx-auto">
+      <a href="./index.html" class="font-display text-2xl font-semibold text-primary tracking-tighter drop-shadow-[0_0_10px_rgba(209,189,250,0.5)] hover:opacity-80 transition-opacity no-underline">拂烟</a>
+      <div class="hidden md:flex items-center gap-12">
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-sm font-semibold tracking-widest uppercase no-underline" href="./index.html">首页</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-sm font-semibold tracking-widest uppercase no-underline" href="./about.html">关于</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <button id="themeToggle" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all hover:scale-110 active:scale-95 cursor-pointer bg-transparent border-none text-xl" type="button" aria-label="切换主题">dark_mode</button>
+        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold tracking-widest uppercase no-underline hidden sm:inline" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative min-h-screen">
+    <!-- Article Header -->
+    <header class="pt-16 pb-8 px-6 max-w-[800px] mx-auto text-center">
+      <div class="mb-8">
+        <div id="postTags" class="flex items-center justify-center gap-2 flex-wrap mb-3"></div>
+        <div class="flex items-center justify-center gap-3 text-sm text-on-surface-variant/60">
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 拂烟</span>
+          <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+          <span id="postDate" class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_today</span> —</span>
         </div>
-        <div class="header-actions">
-          <button id="themeToggle" class="btn" type="button" aria-label="切换主题">
-            主题
-          </button>
-          <a class="btn btn-ghost" href="./index.html">返回首页</a>
-        </div>
+      </div>
+      <h1 id="postTitle" class="font-display text-4xl md:text-6xl font-bold text-on-surface mb-4">加载中...</h1>
+      <div class="flex items-center justify-center gap-3 mt-6">
+        <a href="./index.html" class="text-on-surface-variant/60 hover:text-primary text-sm transition-colors no-underline">&larr; 所有文章</a>
+        <button id="editPostBtn" class="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold border border-primary/30 hover:bg-primary/20 transition-all cursor-pointer hidden" type="button">编辑</button>
+        <button id="deletePostBtn" class="bg-error/10 text-error px-4 py-1.5 rounded-full text-xs font-semibold border border-error/30 hover:bg-error/20 transition-all cursor-pointer hidden" type="button">删除</button>
       </div>
     </header>
 
-    <main id="main" class="container">
-      <article class="panel article">
-        <header class="article-header">
-          <h1 id="postTitle" class="article-title">加载中…</h1>
-          <div class="article-meta">
-            <span id="postDate" class="badge">—</span>
-            <span id="postTags" class="tags"></span>
-          </div>
-        </header>
-
-        <div id="postBody" class="markdown" aria-live="polite"></div>
-
-        <footer class="article-footer">
-          <a class="btn btn-ghost" href="./index.html">← 所有文章</a>
-          <div class="article-actions">
-            <button id="editPostBtn" class="btn" type="button">编辑</button>
-            <button id="deletePostBtn" class="btn" type="button">删除</button>
-          </div>
-        </footer>
-      </article>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-row">
-        <p class="muted small">© <span id="year"></span> 我的博客</p>
-        <p class="muted small"><a href="./index.html">首页</a></p>
+    <!-- Article Content -->
+    <article class="relative py-8 max-w-[750px] mx-auto px-6 mb-16">
+      <!-- Shooting Star Progress Line -->
+      <div class="relative w-full overflow-hidden h-px mb-12 bg-outline-variant/10">
+        <div class="shooting-star"></div>
       </div>
-    </footer>
+      <div id="postBody" class="markdown text-on-surface-variant text-lg leading-relaxed">
+        <p class="text-on-surface-variant/50 italic">正在加载文章内容...</p>
+      </div>
+    </article>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked@14.1.2/marked.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/lib/highlight.min.js" defer></script>
-    <script src="./assets/main.js" defer></script>
-
-    <!-- 编辑文章模态框 -->
-    <div id="postModal" class="modal" style="display: none;">
-      <div class="modal-overlay" id="modalOverlay"></div>
-      <div class="modal-dialog">
-        <div class="modal-header">
-          <h2 id="modalTitle">编辑文章</h2>
-          <button id="modalClose" class="btn-close" type="button" aria-label="关闭">×</button>
+  <!-- Edit Post Modal -->
+  <div id="postModal" class="fixed inset-0 z-[100] flex items-center justify-center" style="display: none;">
+    <div class="modal-overlay absolute inset-0 bg-black/60 cursor-pointer" id="modalOverlay"></div>
+    <div class="modal-dialog relative w-[min(100%-32px,600px)] max-h-[85vh] bg-surface-container rounded-2xl border border-outline-variant/30 shadow-2xl overflow-hidden flex flex-col animate-[slideUp_200ms_ease]">
+      <div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant/20">
+        <h2 id="modalTitle" class="font-headline text-xl font-semibold text-on-surface m-0">编辑文章</h2>
+        <button id="modalClose" class="bg-transparent border-none text-on-surface-variant hover:text-on-surface text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors" type="button" aria-label="关闭">&times;</button>
+      </div>
+      <div class="px-6 py-5 overflow-y-auto flex-1">
+        <div class="mb-5">
+          <label for="postTitleInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">标题</label>
+          <input id="postTitleInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40" type="text" placeholder="输入文章标题..." />
         </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="postTitleInput">标题</label>
-            <input
-              id="postTitleInput"
-              class="input"
-              type="text"
-              placeholder="输入文章标题…"
-            />
-          </div>
-          <div class="form-group">
-            <label for="postExcerptInput">摘要（可选）</label>
-            <input
-              id="postExcerptInput"
-              class="input"
-              type="text"
-              placeholder="输入文章摘要…"
-            />
-          </div>
-          <div class="form-group">
-            <label for="postContentInput">内容</label>
-            <textarea
-              id="postContentInput"
-              class="input textarea"
-              placeholder="输入文章内容…"
-              rows="12"
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label for="postTagsInput">标签（用逗号分隔）</label>
-            <input
-              id="postTagsInput"
-              class="input"
-              type="text"
-              placeholder="例如：随笔, 技术"
-            />
-          </div>
+        <div class="mb-5">
+          <label for="postExcerptInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">摘要（可选）</label>
+          <input id="postExcerptInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40" type="text" placeholder="输入文章摘要..." />
         </div>
-        <div class="modal-footer">
-          <button id="modalCancel" class="btn btn-ghost" type="button">取消</button>
-          <button id="modalSave" class="btn" type="button">保存</button>
+        <div class="mb-5">
+          <label for="postContentInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">内容</label>
+          <textarea id="postContentInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40 min-h-[200px] resize-y font-mono" placeholder="输入文章内容..." rows="10"></textarea>
         </div>
+        <div class="mb-2">
+          <label for="postTagsInput" class="block mb-2 font-semibold text-sm text-on-surface-variant">标签（用逗号分隔）</label>
+          <input id="postTagsInput" class="w-full bg-surface-container-high border border-outline-variant/30 focus:border-tertiary focus:ring-0 rounded-lg px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/40" type="text" placeholder="例如：随笔, 技术" />
+        </div>
+      </div>
+      <div class="flex gap-3 justify-end px-6 py-5 border-t border-outline-variant/20">
+        <button id="modalCancel" class="px-5 py-2 rounded-full text-sm font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all border-none cursor-pointer bg-transparent" type="button">取消</button>
+        <button id="modalSave" class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full text-sm font-semibold hover:shadow-[0_0_20px_rgba(229,193,143,0.3)] transition-all active:scale-95 border-none cursor-pointer" type="button">保存</button>
       </div>
     </div>
-  </body>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest w-full py-12 border-t border-outline-variant/10">
+    <div class="flex flex-col items-center gap-4 w-full px-6 max-w-[1200px] mx-auto">
+      <div class="font-headline text-2xl text-tertiary opacity-40">拂烟</div>
+      <div class="flex gap-8 flex-wrap justify-center">
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./index.html">首页</a>
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./rss.xml">RSS</a>
+        <a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 text-sm italic no-underline" href="./sitemap.xml">Sitemap</a>
+      </div>
+      <p class="text-sm text-center italic text-on-surface-variant/50">
+        &copy; <span id="year"></span> 拂烟 &middot; Powered by GitHub Pages
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@14.1.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script src="./assets/main.js" defer></script>
+</body>
 </html>

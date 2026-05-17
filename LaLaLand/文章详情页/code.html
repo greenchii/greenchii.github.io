@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#3b383c",
+                    "surface-tint": "#d1bdfa",
+                    "tertiary-fixed": "#ffddb0",
+                    "on-surface-variant": "#cbc4d0",
+                    "primary-container": "#2b1b4d",
+                    "on-primary-fixed-variant": "#4e3e71",
+                    "tertiary-fixed-dim": "#e5c18f",
+                    "error-container": "#93000a",
+                    "surface": "#141316",
+                    "outline-variant": "#49454e",
+                    "primary-fixed": "#eaddff",
+                    "on-tertiary": "#422c07",
+                    "on-primary-fixed": "#211143",
+                    "on-surface": "#e6e1e6",
+                    "on-primary-container": "#9583bc",
+                    "inverse-primary": "#66558b",
+                    "on-error": "#690005",
+                    "background": "#141316",
+                    "primary": "#d1bdfa",
+                    "on-secondary-fixed": "#001356",
+                    "surface-variant": "#363438",
+                    "surface-container-highest": "#363438",
+                    "surface-container-high": "#2b292d",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#141316",
+                    "on-tertiary-fixed": "#291800",
+                    "secondary-fixed-dim": "#b9c3ff",
+                    "secondary": "#b9c3ff",
+                    "on-background": "#e6e1e6",
+                    "secondary-container": "#354487",
+                    "on-tertiary-container": "#a6875a",
+                    "on-secondary-fixed-variant": "#334284",
+                    "surface-container": "#211f23",
+                    "tertiary-container": "#352100",
+                    "primary-fixed-dim": "#d1bdfa",
+                    "on-tertiary-fixed-variant": "#5b421c",
+                    "surface-container-lowest": "#0f0e11",
+                    "on-secondary-container": "#a6b4ff",
+                    "secondary-fixed": "#dde1ff",
+                    "on-primary": "#372759",
+                    "on-secondary": "#1a2a6c",
+                    "inverse-surface": "#e6e1e6",
+                    "inverse-on-surface": "#323034",
+                    "outline": "#948f99",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#e5c18f",
+                    "surface-container-low": "#1d1b1f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "container-max": "1200px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "caption": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #141316;
+            color: #e6e1e6;
+            overflow-x: hidden;
+        }
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCDNWuc-Z73B9x5-mJ2Pi-CtwMp3yeQqzKQAo53VHjNHOnwW0tzlLKOvfAfpEWNpaDqLYmJXgEyCspogJJ_kHFgvmy9rkFwAm4_3lULYV9WkO890rCVLopxRoITyrsk_lznFFDnf2vmsFO816pzwIbGystzaEIAqLeGcSRjeTNbTDYCugUDb0Us3cae5pjWJIlYLkBVSkQ_eKyx45Y7ktr3m_87OUsA8-b3oeZPY29KTWeobt5U0iR5OVAiI8j6MiDcNwMFKQtxUlHQ);
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            letter-spacing: 0.01em;
+        }
+        .shooting-star {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d1bdfa, transparent);
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: -100%;
+            animation: shoot 6s linear infinite;
+        }
+        @keyframes shoot {
+            0% { left: -100%; } 
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-tertiary selection:text-on-tertiary">
+<div class="film-grain"></div>
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-gutter py-md max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-lg text-primary tracking-tighter drop-shadow-[0_0_10px_rgba(209,189,250,0.3)]">
+                The Epilogue
+            </div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">The Score</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Cast &amp; Crew</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer hover:scale-95 transition-transform duration-200">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="relative min-h-screen">
+<!-- Text Header Section -->
+<header class="pt-xl pb-lg px-gutter max-w-[800px] mx-auto text-center">
+<div class="mb-lg">
+<span class="font-label-md text-label-md text-tertiary uppercase tracking-widest block mb-xs">A Long-Form Cinematic Essay</span>
+<div class="flex items-center justify-center gap-md font-label-md text-label-md text-on-surface-variant/60">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">person</span> The Dreamer</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Dec 15</span>
+</div>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-md">City of Stars, Are You Shining Just for Me?</h1>
+<p class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary/70 italic leading-relaxed">
+                "A reflection on ambition, jazz, and the bittersweet symphonies of Los Angeles."
+            </p>
+</header>
+<!-- Article Content -->
+<article class="relative py-lg max-w-[750px] mx-auto px-gutter mb-xl">
+<!-- Shooting Star Progress Line -->
+<div class="relative w-full overflow-hidden h-[1px] mb-xl bg-outline-variant/10">
+<div class="shooting-star"></div>
+</div>
+<div class="prose prose-invert max-w-none">
+<p class="font-body-lg text-body-lg text-on-surface-variant first-letter:text-7xl first-letter:font-headline-xl first-letter:text-tertiary first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
+                    There is a specific kind of blue that only exists in the minutes before the sun fully surrenders to the Pacific. It’s a Technicolor indigo, a hue pulled straight from a 1950s musical, painting the Griffith Observatory in shades of impossible longing. To live in this city is to live in a perpetual state of auditioning for a life you’re not quite sure you’ve been cast in yet.
+                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    We come here with scripts in our pockets and melodies in our heads, walking the same cracked sidewalks where legends once stood. But the stars don't just shine for anyone. They require a certain frequency of soul, a willingness to play the same three chords until your fingers bleed and your heart breaks—and then playing them one more time for the ghost of a crowd.
+                </p>
+<h2 class="font-headline-xl text-headline-xl text-tertiary mb-md mt-xl border-b border-outline-variant/10 pb-sm">Scene I: The First Encounter</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    I remember the first time I heard the jazz. Not the polished, radio-ready version, but the kind that feels like a conversation you aren't supposed to overhear. It was in a basement club off Sunset, where the air was thick with the scent of old wood and gin. The pianist wasn't playing for us; he was wrestling with something invisible.
+                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    It was there I realized that ambition isn't a straight line. It’s a syncopated rhythm. It’s the silence between the notes where the real story lives. Los Angeles is a city built on those silences, on the moments when the camera isn't rolling and the stage lights are cold.
+                </p>
+<!-- Pull Quote -->
+<blockquote class="my-xl py-xl px-md border-y border-outline-variant/20 relative">
+<span class="material-symbols-outlined text-tertiary/20 text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none">format_quote</span>
+<p class="font-headline-lg italic text-on-surface leading-snug text-center relative z-10 max-w-xl mx-auto">
+                        "Maybe I'm not good enough. Maybe I'm just another dreamer in a city of millions, chasing a ghost light that will never truly find me."
+                    </p>
+<cite class="block text-center mt-lg font-label-md text-label-md text-secondary uppercase tracking-widest relative z-10">— The Late Night Monologue</cite>
+</blockquote>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    And yet, we stay. We stay for the way the light hits the palm trees at 5 PM. We stay for the hope that maybe, just maybe, the next audition, the next gig, the next chance encounter will be the one where the stars finally align. Because in this city, even the heartbreak feels cinematic.
+                </p>
+<div class="flex flex-col items-center justify-center mt-xl pt-xl border-t border-outline-variant/20 gap-md">
+<p class="font-body-md italic text-on-surface-variant/60 text-center">Thanks for reading this installment of The Epilogue.</p>
+<button class="bg-tertiary text-on-tertiary px-lg py-sm rounded-full font-label-md text-label-md hover:shadow-[0_0_25px_rgba(229,193,143,0.3)] transition-all duration-300 active:scale-95 uppercase">
+                        Support The Revue
+                    </button>
+</div>
+</div>
+</article>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-xl border-t border-outline-variant/10">
+<div class="flex flex-col items-center gap-md w-full px-gutter max-w-container-max mx-auto">
+<div class="font-headline-xl text-headline-xl text-tertiary opacity-40">
+                The Epilogue
+            </div>
+<div class="flex gap-lg flex-wrap justify-center">
+<a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 font-body-md italic" href="#">Archive</a>
+<a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 font-body-md italic" href="#">Terms</a>
+<a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 font-body-md italic" href="#">Privacy</a>
+<a class="text-on-surface-variant/70 hover:text-secondary transition-colors duration-300 font-body-md italic" href="#">Contact</a>
+</div>
+<p class="font-body-md text-body-md text-center italic text-on-surface-variant/50">
+                City of Stars, are you shining just for me? © 2024 The Epilogue Revue
+            </p>
+</div>
+</footer>
+<script>
+        // Smooth hover interaction for the primary button
+        const btn = document.querySelector('button');
+        if(btn) {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-2px)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        }
+    </script>
+</body></html>
