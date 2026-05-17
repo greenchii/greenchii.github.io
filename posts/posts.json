@@ -1,7 +1,7 @@
 [
   {
     "slug": "hello-world",
-    "title": "Hello World：我的博客上线啦",
+    "title": "Hello World：我的博客上线��",
     "date": "2026-03-19",
     "tags": ["随笔", "建站"],
     "excerpt": "用 GitHub Pages 搭一个简单好看的静态博客：Markdown 写作、自动渲染、支持主题切换。",
@@ -14,5 +14,37 @@
     "tags": ["GitHub", "Pages"],
     "excerpt": "从创建仓库到启用 Pages，再到更新文章索引，一次走通发布流程。",
     "file": "./posts/github-pages-notes.md"
+  },
+  {
+    "slug": "0402",
+    "title": "2026/4/2",
+    "date": "2026-04-02",
+    "tags": ["markdown", "日记"],
+    "excerpt": "markdown 格式笔记与今日日记",
+    "file": "./posts/0402.md"
+  },
+   {
+    "slug": "0405",
+    "title": "2026/4/5",
+    "date": "2026-04-05",
+    "tags": ["markdown", "日记"],
+    "excerpt": "docker与今日日记",
+    "file": "./posts/0405.md"
+  },
+  {
+    "slug": "0406",
+    "title": "2026/4/6",
+    "date": "2026-04-06",
+    "tags": ["这是一个标签", "学习笔记"],
+    "excerpt": "清明再见，五一你好",
+    "file": "./posts/0406.md"
+  },
+  {
+    "slug": "slug是啥",
+    "title": "长得高真好啊，看到的世界都不一样了",
+    "date": "2026-04-011",
+    "tags": ["华东散记"],
+    "excerpt": "散记",
+    "file": "./posts/长得高真好啊.md"
   }
 ]
