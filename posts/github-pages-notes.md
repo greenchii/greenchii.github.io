@@ -1,5 +1,5 @@
 
-![](../assets/Scarlet.png)
+![cover](../assets/cover-github-pages.jpg)
 
 # 个人博客上线日志
 
