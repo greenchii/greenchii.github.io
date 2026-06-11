@@ -299,10 +299,13 @@ async function initIndex() {
         const gradient = CARD_GRADIENTS[i % CARD_GRADIENTS.length];
         const staggerOffset = (i % 3 === 1) ? "lg:mt-8" : "";
 
+        const coverHtml = p.cover ? `<img src="${escapeHtml(p.cover)}" alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />` : "";
+
         return `
           <article class="poster-card group cursor-pointer relative ${staggerOffset}">
             <a href="${href}" class="block no-underline">
               <div class="poster-glow aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-br ${gradient} relative border border-outline-variant/10">
+                ${coverHtml}
                 <div class="absolute inset-0 flex flex-col justify-end p-5 bg-gradient-to-t from-[#141316]/95 via-[#141316]/40 to-transparent">
                   <div class="flex items-center gap-2 mb-2 flex-wrap">
                     <span class="text-xs font-semibold text-tertiary tracking-widest uppercase">${escapeHtml(date)}</span>

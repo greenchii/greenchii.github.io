@@ -1,5 +1,3 @@
-![cover](../assets/cover-hello-world.jpg)
-
 # Hello World：我的博客上线啦
 
 欢迎来到我的个人博客。
