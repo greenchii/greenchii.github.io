@@ -61,5 +61,14 @@
     "excerpt": "我真的听到一个人说我想去上海，我仔细的听了一下，发现是18岁的我自己。",
     "file": "./posts/xidan3-repo.md",
     "cover": "./assets/cover-xidan3.jpg"
+  },
+  {
+    "slug": "20261010",
+    "title": "10月10日忆山东兄弟",
+    "date": "2026-10-10",
+    "tags": ["上海", "必吃榜", "随笔"],
+    "excerpt": "焦虑是自由的眩晕，但它也足以让你滞步不前",
+    "file": "./posts/1010.md",
+    "cover": "./assets/cover-wte.jpg"
   }
 ]
